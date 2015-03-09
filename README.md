@@ -17,8 +17,31 @@ Or install it yourself as:
     $ gem install firstmiler_sms_oauth
 
 ## Usage
-
-TODO: Write usage instructions here
+    Initialize 
+    
+        Before you can do anything, you must have a initializer file with exotel credential.
+        FirstmilerSmsOauth.configure do |c|
+          c.exotel_sid   = "exotel sid"
+          c.exotel_token = "exotel token"
+          c.from_number = "phone no given by exotel"
+          c.code = "code"
+          c.sms_template = "Mobile authentication Otp token is %{key}"
+        end
+        
+    Create generator
+        Run generator to create a migration to add the column.  
+        rails generate firstmiler_sms_oauth
+        rake db:migrate
+        
+    Send OTP
+        For sending otp your model should have attribute phone_no 
+        Include acts_as_sms_oauth   in your model
+        obj.send_opt for sending the otp message
+        
+    verify OTP    
+        obj.varify_sms_token?(token) for verification
+    
+    
 
 ## Contributing
 
