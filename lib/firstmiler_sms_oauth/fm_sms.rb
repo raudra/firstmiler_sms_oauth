@@ -44,7 +44,7 @@ module FirstmilerSmsOauth
       raise "Sms Template content should not be blank."
     end
     class << self
-      def send_otp(number, content)
+      def send(number, content)
         new.send(number, content)
       end
     end
