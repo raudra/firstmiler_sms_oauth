@@ -1,17 +1,17 @@
 module FirstmilerSmsOauth
   module Otp
     module_function
-
     def generate_key
-      rand(1000 .. 9999)
+      rand_key  = [*1000...9999].sample
+      "#{FirstmilerSmsOauth.code}#{rand_key}"
     end
 
-    # def verify_key?(key, user_id)
-    #   user = User.find_by_id(user_id)
-    #   if user.present?
+    def build_otp_content(key)
+      sms_template % {key: key}
+    end
 
-    #   end
-    #   false
-    # end
+    def sms_template
+      FirstmilerSmsOauth.sms_template
+    end
   end
 end
