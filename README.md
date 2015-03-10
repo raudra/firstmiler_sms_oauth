@@ -29,7 +29,8 @@ Or install it yourself as:
         end
 
     Create generator
-        Run generator to create a migration for sms oauth token table.
+
+        Run generator to create a migration for creating the sms_oauth_token table
         rails generate firstmiler_sms_oauth
         rake db:migrate
 
@@ -37,11 +38,19 @@ Or install it yourself as:
         For sending otp your model should have attribute phone_no
         Include acts_as_sms_oauth   in your model
         obj.send_otp_token for sending the otp message
+<<<<<<< HEAD
 
     verify OTP
         obj.varify_otp?(token) for verification
 
 
+=======
+
+    verify OTP
+        obj.varify_otp?(token) for verification
+
+
+>>>>>>> 8a572d7ed11df01eae2fd8203623668a7b4384ec
 
 ## Contributing
 
