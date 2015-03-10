@@ -6,7 +6,7 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'firstmiler_sms_oauth', '0.0.5'
+    gem 'firstmiler_sms_oauth', '0.0.7'
 
 And then execute:
 
