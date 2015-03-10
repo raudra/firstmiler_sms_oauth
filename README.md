@@ -6,7 +6,7 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'firstmiler_sms_oauth'
+    gem 'firstmiler_sms_oauth', '0.0.5'
 
 And then execute:
 
@@ -38,19 +38,11 @@ Or install it yourself as:
         For sending otp your model should have attribute phone_no
         Include acts_as_sms_oauth   in your model
         obj.send_otp_token for sending the otp message
-<<<<<<< HEAD
 
-    verify OTP
-        obj.varify_otp?(token) for verification
-
-
-=======
-
-    verify OTP
-        obj.varify_otp?(token) for verification
+    Verify OTP
+        obj.verify_otp?(token) for verification
 
 
->>>>>>> 8a572d7ed11df01eae2fd8203623668a7b4384ec
 
 ## Contributing
 
