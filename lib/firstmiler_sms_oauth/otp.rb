@@ -15,6 +15,7 @@ module FirstmilerSmsOauth
       unless is_valid_sms_template?(template)
         FirstmilerSmsOauth::FmSmsException.raise_exception(500)
       end
+      template
     end
 
     def is_valid_sms_template?(template)
