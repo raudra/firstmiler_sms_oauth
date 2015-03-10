@@ -28,21 +28,12 @@ module FirstmilerSmsOauth
     end
 
     def handle_response(response)
-      flag, msg = FirstmilerSmsOauth::FmSmsException.check_response(response)
+      flag= FirstmilerSmsOauth::FmSmsException.check_response(response)
       if flag
         FirstmilerSmsOauth::FmSmsResponse.new(response)
-      else
-        raise msg
       end
     end
 
-    def exotel_sid
-      FirstmilerSmsOauth.exotel_sid
-    end
-
-    def raise_blank_sms_template_exception
-      raise "Sms Template content should not be blank."
-    end
     class << self
       def send(number, content)
         new.send(number, content)

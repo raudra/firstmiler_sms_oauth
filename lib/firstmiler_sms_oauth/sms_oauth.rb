@@ -13,13 +13,8 @@ module FirstmilerSmsOauth
 
     module InstanceMethods
       def send_otp_token
-        p content = sms_content
-        begin
-          FirstmilerSmsOauth::FmSms.send(self.phone_no, content)
-        rescue Exception => e
-          delete_user_sms_oauth_tokens
-          p e.to_s
-        end
+        content = sms_content
+        FirstmilerSmsOauth::FmSms.send(self.phone_no, content)
       end
 
       def delete_user_sms_oauth_tokens
@@ -42,7 +37,7 @@ module FirstmilerSmsOauth
         key
       end
 
-      def varify_otp?(token)
+      def verify_otp?(token)
         flag = all_tokens.include?(token.to_s)
         delete_user_sms_oauth_tokens
         flag

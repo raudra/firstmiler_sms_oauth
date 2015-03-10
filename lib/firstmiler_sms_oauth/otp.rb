@@ -11,7 +11,18 @@ module FirstmilerSmsOauth
     end
 
     def sms_template
-      FirstmilerSmsOauth.sms_template
+      template = FirstmilerSmsOauth.sms_template
+      unless is_valid_sms_template?(template)
+        FirstmilerSmsOauth::FmSmsException.raise_exception(500)
+      end
+    end
+
+    def is_valid_sms_template?(template)
+      template.present? && check_valid_formate?(template)
+    end
+
+    def check_valid_formate?(template)
+      template.include? '%{key}'
     end
   end
 end
