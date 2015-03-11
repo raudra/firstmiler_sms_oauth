@@ -1,20 +1,10 @@
 # FirstmilerSmsOauth
 
-TODO: Write a gem description
-
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'firstmiler_sms_oauth', '0.0.9'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install firstmiler_sms_oauth
+    gem 'firstmiler_sms_oauth', '0.1.1'
 
 ## Usage
     Initialize
@@ -36,18 +26,9 @@ Or install it yourself as:
 
     Send OTP
         For sending otp your model should have attribute phone_no
-        Include acts_as_sms_oauth   in your model
+        Include acts_as_sms_oauth :column_name like(:phone_no, :number, :phone, :mobile_no)
+        for example: acts_as_sms_oauth :mphone
         obj.send_otp_token for sending the otp message
 
     Verify OTP
         obj.verify_otp?(token) for verification
-
-
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
