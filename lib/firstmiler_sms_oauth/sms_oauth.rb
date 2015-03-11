@@ -6,15 +6,21 @@ module FirstmilerSmsOauth
     end
 
     module ClassMethods
-      def acts_as_sms_oauth
+
+      def acts_as_sms_oauth(method_name)
+        set_method_name(method_name)
         send :include, InstanceMethods
+      end
+
+      def set_method_name(m_name)
+        FirstmilerSmsOauth.send_attr_name = m_name
       end
     end
 
     module InstanceMethods
       def send_otp_token
         content = sms_content
-        FirstmilerSmsOauth::FmSms.send(self.phone_no, content)
+        FirstmilerSmsOauth::FmSms.send(self.send(FirstmilerSmsOauth.send_attr_name), content)
       end
 
       def delete_user_sms_oauth_tokens
